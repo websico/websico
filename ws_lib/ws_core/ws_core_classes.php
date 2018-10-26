@@ -498,7 +498,7 @@ class WsTopLevelContainer extends WsContainer {
 		    $tbl_name = $this->properties & WS_DRAFT ? WsSite::TLC_DRAFT : WsSite::TLC;
 		    $query = "DELETE from ".$tbl_name." where id='".$this->id."' and lang='".$this->lang."'";
 	    	WsSite::execQuery($query, 2);
-			unset($this);
+			//unset($this);
 			$ws_must_purge_data = true;
 		} else {
             global $ws_notAllowed;
@@ -964,7 +964,7 @@ class WsContainer extends WsElement {
         }
 	  	// Not oldies
         if (!($this->properties & WS_DROPDOWN
-                && count($this->contents > 1)
+        && count($this->contents) > 1
                 && get_class_lower($this->contents[0]) == 'wsstitle'))
             $this->properties &= ~WS_DROPDOWN;  // Clean up dropdown flag
 	  	$this->ApplyModel();					// Apply model because it may have changed since last save
@@ -1131,7 +1131,7 @@ class WsContainer extends WsElement {
                 // If a title is the first content in a drop-down container
                 // it is a link to open the drop-down 
                 if ($this->properties & WS_DROPDOWN
-                        && count($this->contents > 1)
+                        && count($this->contents) > 1
                         && get_class_lower($this->contents[0]) == 'wsstitle'){
                     $this->contents[0]->href = 'javascript: ws_dropDown(\''.$this->id.'dropdown\')';
                     $this->contents[0]->Display();
