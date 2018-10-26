@@ -947,7 +947,7 @@ new ws_ElementForm('wssdownload_form', function(){
 	this.HTML = this.buildForm(
 		this.buildTextInput()
 			+ '<input type="hidden" name="ws__attached_files">'
-			+ '<input type="hidden" name="MAX_FILE_SIZE" value="100000000">'
+		        + '<input type="hidden" name="MAX_FILE_SIZE" value="' + (WS_UPLOAD_MAX_FILESIZE*1000000) + '">'
 			+ '<div style="margin: 0.5em 0 0 1em">' + $Str.datafile + '<span id="ws_fileDisplay" style="margin: 0.2em 1em"></span></div>'
 			+ '<div id="ws_fileToUpload" style="margin: 0.2em 1em" title="' + $Str.downloadCaption + '"></div>'
 	);

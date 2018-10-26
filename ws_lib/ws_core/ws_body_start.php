@@ -108,6 +108,7 @@ echo '
 	var WS_DONT_UNCAP = '.WS_DONT_UNCAP.';
 	var WS_BUBBLE = '.WS_BUBBLE.';
 	var WS_RAWDATA_PATH = "'.WS_RAWDATA_PATH.'";
+	var WS_UPLOAD_MAX_FILESIZE = "'.WS_UPLOAD_MAX_FILESIZE.'";
 	var ws_site_name = "'.$ws_site_name.'";
 	var ws_user_lang = "'.$ws_user_lang.'";
 	var ws_lang = "'.$ws_lang.'";
