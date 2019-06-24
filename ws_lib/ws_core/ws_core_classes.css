@@ -1,6 +1,6 @@
 /*
  *  This file is part of Websico: online Web Site Composer, http://websico.net
- *  Copyright (c) 2009-2017 Websico SAS, http://websico.com
+ *  Copyright (c) 2009-2019 Olivier Seston olivier@seston.net
  *	Author: O.Seston
  *
  *  This is free software: you can redistribute it and/or modify

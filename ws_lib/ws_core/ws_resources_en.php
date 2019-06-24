@@ -1,7 +1,7 @@
 <?php
 /*
  *  This file is part of Websico: online Web Site Composer, http://websico.net
- *  Copyright (c) 2009-2016 Websico SAS, http://websico.com
+ *  Copyright (c) 2005-2019 Olivier Seston, o.seston@free.fr
  *  Author: O.Seston
  *
  *  This is free software: you can redistribute it and/or modify

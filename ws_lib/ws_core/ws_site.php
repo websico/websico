@@ -1,7 +1,7 @@
 <?PHP
 /*
  *  This file is part of Websico: online Web Site Composer, http://websico.net
- *  Copyright (c) 2009-2018 Websico SAS, http://websico.com
+ *  Copyright (c) 2009-2019 Olivier Seston olivier@seston.net *  Copyright (c) 2005-2019 Olivier Seston, o.seston@free.fr
  *  Author: O.Seston
  *
  *  This is free software: you can redistribute it and/or modify
@@ -22,7 +22,7 @@
  *  ---------------------------------------------
  */
 
-define ("WS_VERSION", 5.6);						// PRODUCT VERSION NUMBER
+define ("WS_VERSION", 6.0);						// PRODUCT VERSION NUMBER
 
 require_once WS_ADMIN_PATH."ws_master_db.php";
 require_once "ws_libp.php";

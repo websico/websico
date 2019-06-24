@@ -1,7 +1,7 @@
 <?php
 /*
  *  This file is part of Websico: online Web Site Composer, http://websico.net
- *  Copyright (c) 2009-2018 Websico SAS, http://websico.com
+ *  Copyright (c) 2009-2019 Olivier Seston olivier@seston.net
  *  Author: O.Seston
  *
  *  This is free software: you can redistribute it and/or modify
@@ -94,7 +94,7 @@ class WssPage extends WsTopLevelContainer {
 			$description = html_entity_decode(strip_tags($this->makeDescriptionString($elements)));
 			if (!is_utf8($description))
 				$description = utf8_encode($description);
-            $rssString .= '<?xml version="1.0" encoding="utf-8"?'.'>
+            $rssString = '<?xml version="1.0" encoding="UTF-8"?'.'>
 					<rss version="2.0">
 						<channel>
 							<title>'.$this->makeTitleString($elements, $url).'</title>
@@ -825,7 +825,10 @@ class WssRSSReader extends WsComponent {
 	public function DisplayContent() {
 		require_once(WS_LIB_PATH.'third_party_includes/ws_simplepie.inc');
 	  	if (!empty($this->value) && ($feed = new SimplePie())){
-            $feed->set_feed_url($this->value);
+            $prefix = "";
+            if (!preg_match("~^https?://~", $this->value))
+		      $prefix = WsSite::$protocol.'//'.$_SERVER['SERVER_NAME'].'/';
+            $feed->set_feed_url($prefix.$this->value);
             $feed->set_cache_duration(0);
             $feed->strip_comments(true);
             $feed->set_timeout(30);

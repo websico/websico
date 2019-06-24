@@ -1,7 +1,7 @@
 <?php
 /*
  *  This file is part of Websico: online Web Site Composer, http://websico.net
- *  Copyright (c) 2009-2017 Websico SAS, http://websico.com
+ *  Copyright (c) 2005-2019 Olivier Seston, olivier@seston.net
  *  Author: O.Seston
  *
  *  This is free software: you can redistribute it and/or modify
@@ -296,10 +296,13 @@ case 'copy_to_clipboard':
 	$ws_service_lang = @$_REQUEST['WS_LANG'] ? @$_REQUEST['WS_LANG'] : $ws_user_lang;
 	list($tlc_id, $location) = explode('/', $_REQUEST['WS_LOCATION']);
 	if (($tlc =& WsTopLevelContainer::Read($tlc_id, $ws_service_lang))) {
-	    if ($_REQUEST['WS_TRANSACTION_ID'] != $tlc->save_number)
+	    if ($_REQUEST['WS_TRANSACTION_ID'] != $tlc->save_number) {
+            ob_end_clean();
 	        exit ($ws_obsolet_page);
-		else if (($element =& $tlc->GetByLocation($location)) && $element->CopyToClipboard())
+		} else if (($element =& $tlc->GetByLocation($location)) && $element->CopyToClipboard()) {
+            ob_end_clean();
 			exit ('OK');
+        }
 	}
 	echo 'ERROR';
 	break;

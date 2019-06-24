@@ -1,7 +1,7 @@
 <?php
 /*
  *  This file is part of Websico: online Web Site Composer, http://websico.net
- *  Copyright (c) 2009-2016 Websico SAS, http://websico.com
+ *  Copyright (c) 2009-2019 Olivier Seston olivier@seston.net
  *	Author: O.Seston
  *
  *  This is free software: you can redistribute it and/or modify
@@ -94,4 +94,5 @@ define ("WS_DEBUG", 4);			// Debug mode (don't execute raw text etc..)
 // Some other def's
 define ("WS_UPLOAD_MAX_FILESIZE", 1000);		// In megabytes
 define ("WS_HELP_SERVER", 'http://help.websico.net');
+define ("WS_DEFAULT_MODEL_SHOP", 'http://modelshop.websico.net');
 ?>

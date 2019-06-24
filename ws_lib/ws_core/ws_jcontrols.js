@@ -1,6 +1,6 @@
 /*
  *  This file is part of Websico: online Web Site Composer, http://websico.net
- *  Copyright (c) 2009-2016 Websico SAS, http://websico.com
+ *  Copyright (c) 2009-2019 Olivier Seston olivier@seston.net
  *  Author: O.Seston
  *
  *  This is free software: you can redistribute it and/or modify
@@ -631,7 +631,7 @@ ws_TabbedPane.prototype.showPane =
 				pane.tab.className = 'ws_tab';
 			} else {							// Disable this one
 				pane.tab.className = 'ws_tab_disabled';
-			}
+            }
 		}
 		this.activePane = this.panes[paneId];
 		this.activePane.pane.style.display = "block";

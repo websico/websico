@@ -8,7 +8,7 @@ http://websico.com
 2/ LICENSE
 ----------
 Beside some third-party files under their own public license, the software is
-copyright (c) WEBSICO SAS, Bordeaux France.
+copyright (c) Olivier SESTON, Bordeaux France.
 The copyleft version in this directory and it's subdirectories is delivered under
 GNU Affero Public License, to be installed on private servers, and/or adapted for
 particular needs, or to make derivative works.
@@ -18,9 +18,9 @@ You'll find a copy of GNU AGPL in the file license.txt.
 ------------------------------
 - Linux system (centos6/7 tested), Windows 7 (used for development with WAMP)
 - Apache 2
-- PHP 5, 7 (5.3 -> 5.5, 7.0 tested)
-- MySQL 5 (MySQL 5.1 -> 5.6 and Mariadb 5.4 tested)
-- a mail server (postfix tested) or an SMTP relay account
+- PHP 5, 7 (5.3 -> 5.5, 7.4 validated)
+- MySQL 5 (MySQL 5.1 -> 5.6 and Mariadb 5.4 validated)
+- a mail server (postfix validated) or an SMTP relay account
 - zip and unzip utilities
 
 FILESYSTEM considerations:

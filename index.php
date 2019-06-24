@@ -1,7 +1,7 @@
 <?php
 /*
  *  This file is part of WebSiCo: online Web Site Composer, http://websico.net
- *  Copyright (c) 2005-2017 Olivier Seston, http://seston.net
+ *  Copyright (c) 2005-2019 Olivier Seston, http://seston.net
  *	All rights reserved.
  *  --------------------------------------------------------------------------
  *  SHOW A PAGE
@@ -43,8 +43,8 @@
 	// Produce an RSS feed
 	if(@$_REQUEST['output'] == 'rss'){
 		header('Content-Type: application/rss+xml; charset=utf-8');
-        $buff = $ws_current_tlc->MakeRss(true);
-        exit($buff);
+        ob_end_clean();
+        exit($ws_current_tlc->MakeRss(true));
 	}
 
 	// Is there a redirection for that page

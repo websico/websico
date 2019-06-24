@@ -1,6 +1,6 @@
 /*
  *  This file is part of Websico: online Web Site Composer, http://websico.net
- *  Copyright (c) 2009-2017 Websico SAS, http://websico.com
+ *  Copyright (c) 2009-2019 Olivier Seston olivier@seston.net
  *  Author: O.Seston
  *
  *  This is free software: you can redistribute it and/or modify
@@ -230,6 +230,7 @@ ws_ElementForm.toClipboard = function(event, forget){ // Called by the button an
 			+ '&WS_LANG=' + ws_user_lang,
 			function(response){
 				if (response == 'OK') {
+                console.log(response);
 					if (forget && forget == "forget") {
 						ws_selectElement(elt);
 					    var f = elt.ws_updateForm;
@@ -947,7 +948,7 @@ new ws_ElementForm('wssdownload_form', function(){
 	this.HTML = this.buildForm(
 		this.buildTextInput()
 			+ '<input type="hidden" name="ws__attached_files">'
-		        + '<input type="hidden" name="MAX_FILE_SIZE" value="' + (WS_UPLOAD_MAX_FILESIZE*1000000) + '">'
+		    + '<input type="hidden" name="MAX_FILE_SIZE" value="' + (WS_UPLOAD_MAX_FILESIZE*1000000) + '">'
 			+ '<div style="margin: 0.5em 0 0 1em">' + $Str.datafile + '<span id="ws_fileDisplay" style="margin: 0.2em 1em"></span></div>'
 			+ '<div id="ws_fileToUpload" style="margin: 0.2em 1em" title="' + $Str.downloadCaption + '"></div>'
 	);
