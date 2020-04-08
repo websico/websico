@@ -1,7 +1,7 @@
 <?php
 /*
  *  This file is part of Websico: online Web Site Composer, http://websico.net
- *  Copyright (c) 2009-2019 Olivier Seston olivier@seston.net
+ *  Copyright (c) 2009-2020 Olivier Seston, Bordeaux, France
  *  Author: O.Seston
  *
  *  This is free software: you can redistribute it and/or modify
@@ -1195,7 +1195,7 @@ class WsContainer extends WsElement {
                 // If a title is the first content in a drop-down container
                 // it is a link to open the drop-down 
                 if ($this->properties & WS_DROPDOWN
-                        && count($this->contents > 1)
+                        && count($this->contents) > 1
                         && get_class_lower($this->contents[0]) == 'wsstitle'){
                     $this->contents[0]->href = 'javascript: ws_dropDown(\''.$this->id.'dropdown\')';
                     $this->contents[0]->Display();
@@ -2313,4 +2313,3 @@ class WsUtils {
 	}
 }
 ?>
-
