@@ -228,6 +228,9 @@ class WsElement {
 //	--------------------------------------------------------------
 	function GetDataFiles($user_func = 0){
 		$files = array();
+        if ( is_null($this->embedded_css_rules) ) {
+            return($files);
+        }
 		preg_match_all("<background-image.*url\(\"?(\./)*([^\")]+)>", $this->embedded_css_rules, $result);
 		foreach ($result[2] as $path){
 			$new_path = $path;		
@@ -955,7 +958,9 @@ class WsContainer extends WsElement {
 		parent::__wakeup();
 
         // Oldies
-        $this->embedded_css_rules = str_replace('#'.$this->id, '.id_'.$this->id, $this->embedded_css_rules);
+        if ( ! is_null($this->embedded_css_rules) ) {
+            $this->embedded_css_rules = str_replace('#'.$this->id, '.id_'.$this->id, $this->embedded_css_rules);
+        }
 	  	$this->properties |= WS_CONTAINER;
 	  	$this->properties &= WS_NOT_A_COMPONENT; // To fix an old bug
         if (!empty($this->user_selectable)) {
@@ -2244,6 +2249,9 @@ class WsUtils {
 	static function WsError($error='', $must_die=false) {
 		echo '<link rel="StyleSheet" href="'.WS_CORE_PATH.'ws_core_classes.css" type="text/css">';
 		echo '<div class="ws_error">--&nbsp;System message&nbsp;--<br>'.$error, '<br>';
+        //echo '<pre>';
+        //debug_print_backtrace();
+        //echo '</pre>';
 		if ($must_die)
 			echo "Operation aborted.";
 //		echo '<br><input type="button" value="Back" onclick="history.back()">';

@@ -143,7 +143,11 @@ class WsSite {
 			return false;
 	}
 	static function execQuery($query, $errorLevel = 0){
-		if (!($res = self::$pdo->query($query))) {
+
+        try {
+            $res = self::$pdo->query($query);
+            return($res);
+        } catch (Exception $e) {
 			if ($errorLevel > 0){
 				$err = self::$pdo->errorInfo();	// For php < 5.4 compatibility
 				trigger_error($err[2]);
@@ -151,8 +155,8 @@ class WsSite {
 			}
 			if ($errorLevel > 1)
         		WsUtils::WsError('', $errorLevel > 2);	// Display an error, exit according errorLevel
+            return(false);
 		}
-		return $res;
 	}
 	static function quoteString($str){
 		return self::$pdo->quote($str);
@@ -270,7 +274,9 @@ class WsSite {
     //  To optimize we keep known size in a cache file
     //	-----------------------------------------------
     function alterSize() {
-        @unlink($this->path.self::SIZE_FILE);
+        if ( file_exists($this->path.self::SIZE_FILE) ) {
+            unlink($this->path.self::SIZE_FILE);
+        }
     }
 
     function getSize() {
