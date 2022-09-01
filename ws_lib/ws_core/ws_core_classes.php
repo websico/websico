@@ -215,12 +215,14 @@ class WsElement {
 	function &GetById($id) {
 	  	if ($id == $this->id || ($id[0] == WS_NAME_IN_MODEL_PREFIX && $id == @$this->name_in_model))
 	  		return $this;
-		for ($n=count(@$this->contents); $n;)
+		if (! is_null(@$this->contents)) {
+		   	for ($n=count(@$this->contents); $n;)
 			if ($elt =& $this->contents[--$n]->GetById($id))
 				return $elt;
-        $elt = 0;
-        return $elt;    // return a REFERENCE to 0 (had some issues about that)
-	}
+        		$elt = 0;
+        		return $elt;    // return a REFERENCE to 0 (had some issues about that)
+			}
+		}
 
 //	Get name of background image files extracted from embedded css
 //	and return them as keys of an array
