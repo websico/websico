@@ -20,7 +20,7 @@ RewriteEngine on
 
 # 1/ LIBRARIES AND DATA FILES CALLED BY HTML (cache, .js, images etc.. and some .html)
 # ------------------------------------------------------------------------------------
-    RewriteRule /((cache/.*)|(data/.*)|(ws_lib/.*)|(icon\.ico))$ %{ENV:SiteRootPath}$1 [L]
+    RewriteRule /((cache/.*)|(data/.*)|(ws_lib/.*))$ %{ENV:SiteRootPath}$1 [L]
 
 # 2/ PAGES
 # ------------------------------------------------------------------------------------

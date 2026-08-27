@@ -30,7 +30,7 @@ require_once "ws_site.php";
 
 //	Config global variables
 require_once "ws_default_config.php";			// Released config file
-@include "ws_preferences.php";                  // Site preferences file overload
+@include "data/ws_preferences.php";                  // Site preferences file overload
 if (empty($ws_site_name))                       // Site name MUST be set
     WsUtils::WsError("Site name undefined", true);
 

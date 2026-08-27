@@ -69,7 +69,7 @@ class WsMetaSite {
         //  Build zip archive
         //  -----------------
         @unlink($backup_file);      // To be sure to re-create archive...
-        exec(ZIP_COMMAND.$backup_file.' '.WS_DATA_PATH.'* icon.ico '.DB_DUMP_FILE.' 2>'.ZIP_ERROR);
+        exec(ZIP_COMMAND.$backup_file.' '.WS_DATA_PATH.'* '.DB_DUMP_FILE.' 2>'.ZIP_ERROR);
         if (@filesize(ZIP_ERROR))
             die('<h1>ZIP<BR>'.nl2br(file_get_contents(ZIP_ERROR)).'</h1>');
 
@@ -127,12 +127,12 @@ class WsMetaSite {
             } else {
                 // Multilang, we import langs of imported site
                 $langs = implode(', ', array_unique(array_merge(array_values($ws_langs_array), array_values($srcLangs))));
-                @copy("ws_preferences.php", "ws_preferences.back");
-                $preferences = file_get_contents("ws_preferences.php");
+                @copy("data/ws_preferences.php", "data/ws_preferences.back");
+                $preferences = file_get_contents("data/ws_preferences.php");
                 if (empty($preferences))
                 	$preferences = "<?php\n";
                 $preferences = preg_replace("/\$ws_langs.*;/m", '', $preferences).'$ws_langs = "'.$langs.'";';
-                file_put_contents("ws_preferences.php", $preferences, LOCK_EX);
+                file_put_contents("data/ws_preferences.php", $preferences, LOCK_EX);
             }
         }
 

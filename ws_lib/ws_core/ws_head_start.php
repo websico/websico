@@ -47,12 +47,12 @@ if (!@$ws_current_tlc->not_responsive && !@$ws_session->notResponsive)
 // Some settings before user can alter anything by javascript or unsecured text (eg for free sites)
 include WS_ADMIN_PATH.'ws_before_user_code.php';
 
-if (!is_file("icon.ico"))
-	copy(WS_LIB_PATH."icon.ico", "icon.ico");
+if (!is_file("data/icon.ico"))
+	copy(WS_LIB_PATH."icon.ico", "data/icon.ico");
 echo '
 <meta name="generator" content="Websico">
 '.($ws_permissions & P_SOURCE ? htmlspecialchars(@$ws_current_tlc->hdr_html) : @$ws_current_tlc->hdr_html).'
-<link rel="shortcut icon" type="image/x-icon" href="icon.ico">';
+<link rel="shortcut icon" type="image/x-icon" href="data/icon.ico">';
 
 if ($ws_permissions & P_EDIT) {
 	$css_file = WS_CACHE_PATH."system_E.css";
@@ -69,7 +69,7 @@ echo "\n".'<link rel="stylesheet" href="'.$css_file.'" type="text/css">';
 
 if (!@$ws_current_tlc->not_responsive && !@$ws_session->notResponsive) {
 	if (@filemtime(WS_CACHE_PATH.'responsive.css') < 
-			max(@filemtime($ws_site->path."ws_preferences.php"), filemtime(WS_CORE_PATH.'ws_responsive.php'))) {
+			max(@filemtime($ws_site->path."data/ws_preferences.php"), filemtime(WS_CORE_PATH.'ws_responsive.php'))) {
 		include "ws_responsive.php";
 	}
 	echo "\n".'<link rel="stylesheet" href="'.WS_CACHE_PATH.'responsive.css" type="text/css">';

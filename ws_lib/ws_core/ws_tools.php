@@ -54,7 +54,7 @@ if (isset($_REQUEST['subsite'])) {		// Work with a subsite, replace current site
 	unset($ws_dont_explore);
 	unset($ws_model_export_authorized);
 	$ws_bashkroun = '';
-	@include ($ws_site->path."ws_preferences.php");
+	@include ($ws_site->path."data/ws_preferences.php");
     $ws_langs_array = preg_split("/[^[:alnum:]\-]+/", trim(@$ws_langs));    // commonly done by preamble
     $ws_subscription = $ws_site->master_db->getSubscriptionBySite($ws_site->name);
 	$ws_site_name = $ws_site->name;
@@ -146,21 +146,21 @@ else if (isset($_POST['ws_save_preferences'])) {
  * WebSiCo site preferences
  * File produced by tools.php, handmade modifications at your own risks !!
  */'."\n";
-	@copy($site->path."ws_preferences.php", $site->path."ws_preferences.back");
+	@copy($site->path."ws_preferences.php", $site->path."data/ws_preferences.back");
 	foreach($_POST as $parameter => $value)
 		$preferences .= '$'.$parameter.' = "'.$value.'";'."\n";
 
-	fwrite(fopen($site->path."ws_preferences.php", "w"), $preferences);
+	fwrite(fopen($site->path."data/ws_preferences.php", "w"), $preferences);
 	unset($ws_norobots);						// Unset checks before reloading
 	unset($ws_noFleximage);
 	unset($ws_noColumnReduction);
 	unset($ws_dont_explore);
 	unset($ws_model_export_authorized);
-	require $site->path."ws_preferences.php";	// Reload preferences
+	require $site->path."data/ws_preferences.php";	// Reload preferences
 	if (($icon = @$_FILES['ws_title_icon']) && $icon['tmp_name'])
         if (strtolower(substr($icon['name'], strrpos($icon['name'], "."))) == '.ico') {
             @unlink($site->path.'icon.ico');
-	  		move_uploaded_file($icon['tmp_name'], $site->path.'icon.ico');
+	  		move_uploaded_file($icon['tmp_name'], $site->path.'data/icon.ico');
         } else {
             echo '<h1 style="color: red">Bad icon file !!"</h1>';
         }
