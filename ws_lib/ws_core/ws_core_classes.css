@@ -152,3 +152,16 @@ a.wscontainer * {
     border-left: 5px solid #080;
 	color: #080;
 }
+
+/*  Patch bouton Menu pour smartphone
+ *  ------*/
+
+.wssmenu .button {
+color: #000;
+font-size: 1.8em;
+}
+
+.wssmenu .button:before {
+content: ' Menu ';
+font-size: 1.4em;
+}
