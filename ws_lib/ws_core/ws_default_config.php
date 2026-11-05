@@ -32,7 +32,7 @@ $ws_XS_Width = 320;									// Maximum screen widths for responsive
 $ws_S_Width = 640;
 $ws_M_Width = 1280;
 
-$ws_default_model_shop = 'http://modelshop.websico.net';
+$ws_default_model_shop = 'https://websico-modelshop.girondenumerique.fr';
 
 //  Miscellaneous
 $ws_site_name = WS_SITE_NAME;

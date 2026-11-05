@@ -112,7 +112,6 @@ class WsSite {
                         $this->path.'24h') as $dir) {
             if (!is_dir($dir)) {
                 mkdir($dir, 0777, true);	// Site directories, from site name to bg images
-                chown($dir, $fowner);       // In case we are running under root (admin)
                 chgrp($dir, $fgroup);
             }
         }
@@ -266,7 +265,7 @@ class WsSite {
     }
 
     static function abortPurge($errno, $errstr, $errfile, $errline) {
-    	if (error_reporting() && $errno != E_STRICT)	// Bypass errors obfuscated by @ error-control operator + E_STRICT for php5
+    	if (error_reporting() && !in_array($errno, array(E_STRICT, E_DEPRECATED, E_USER_DEPRECATED)))	// Bypass errors obfuscated by @ error-control operator + E_STRICT for php5
     		WsUtils::WsError($errno.'......'.$errstr.' ('.$errline.')', true);
     }
 

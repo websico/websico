@@ -45,7 +45,8 @@ class WssPage extends WsTopLevelContainer {
         $badge = new WssBadge();
 		$badge->SetValue('embedded_css_rules',
 									'.id_'.$badge->id.'{margin-left:auto; margin-right:auto}');
-   		$this->InsertContent(new WsContainer(0, WS_CONTAINER | WS_SYSTEM_CONTAINER, array($img, $badge)));
+		$newcontainer = new WsContainer(0, WS_CONTAINER | WS_SYSTEM_CONTAINER, array($img, $badge));
+   		$this->InsertContent($newcontainer);
 	}
 
 	// Save is overloaded to check properties, sometimes pages were
@@ -626,8 +627,8 @@ class WssForm extends WsContainer {
 					$mailReplyTo = htmlspecialchars($value);	// Protection against XSS failure
                 if ($field->type == "captcha"){
 					session_start();
-					if($value != $_SESSION['captcha'][$htmlName]){
-					var_dump($value); exit();
+                                        if(empty($_SESSION['captcha'][$htmlName]) || strcasecmp(trim($value), $_SESSION['captcha'][$htmlName]) != 0){
+                                        // message d'erreur lisible (lien "retour au formulaire") plutôt qu'un var_dump
 	    				$spam = 1;
 	    				break;
 					}

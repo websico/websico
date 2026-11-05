@@ -41,5 +41,5 @@ define ("WS_MORE_TRIAL", 6);	// Demo in a single page, with toolbars
 // Some other def's
 define ("WS_UPLOAD_MAX_FILESIZE", 1000);		// In megabytes
 define ("WS_SITE_NAME", basename(getcwd()));
-define ("WS_HELP_SERVER", 'http://help.websico.net');
+define ("WS_HELP_SERVER", 'https://websico-help.girondenumerique.fr');
 ?>

@@ -93,6 +93,6 @@ define ("WS_DEBUG", 4);			// Debug mode (don't execute raw text etc..)
 
 // Some other def's
 define ("WS_UPLOAD_MAX_FILESIZE", 1000);		// In megabytes
-define ("WS_HELP_SERVER", 'http://help.websico.net');
-define ("WS_DEFAULT_MODEL_SHOP", 'http://modelshop.websico.net');
+define ("WS_HELP_SERVER", 'https://websico-help.girondenumerique.fr');
+define ("WS_DEFAULT_MODEL_SHOP", 'https://websico-modelshop.girondenumerique.fr');
 ?>
